@@ -1,0 +1,41 @@
+   % creating an upper triangular matrix
+for l=1:m
+for i=l:m
+    if i+1<=m
+          k=mat(i+1,l)/mat(l,l); 
+    end
+for j=1:n
+    
+    if i+1<=m
+        mat(i+1,j)=mat(i+1,j)-k*mat(l,j);       
+         I(i+1,j)=I(i+1,j)-k*I(l,j);
+    end
+     
+end
+end
+
+end
+mat
+sol=[1;1;1];
+sol
+
+% backsubstitution
+for i=m:-1:1
+    
+        k=m-i;
+        
+        for l=0:k
+        if (m-l)==0
+        else
+            sol(i)=sol(i)-mat(i,m-l);
+        end
+        end
+         sol(i) = sol(i)/mat(i,i);
+         
+        
+    
+end
+
+sol
+sol=[1;1;1];
+I*sol
